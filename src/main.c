@@ -977,6 +977,9 @@ void handle_inputs(void) {
 
 void init_game(void) {
 
+	font_init();
+    font = font_load(font_spect);
+
 	init_palettes();
 
 	init_scene(); // header and controls text
