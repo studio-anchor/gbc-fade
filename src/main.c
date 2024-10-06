@@ -231,10 +231,10 @@ void sfx_4(void) {
 void set_cpu(void) {
 
 	CRITICAL {
-		if (_cpu == CGB_TYPE) is_gbc = true;
+		if (_cpu == CGB_TYPE) is_gbc = TRUE;
 		if (is_gbc) {
 			cpu_fast();
-			// is_cpu_fast = true;
+			// is_cpu_fast = TRUE;
 
 			set_default_palette(); // palette-0, grayscale
 		}
