@@ -255,6 +255,7 @@ void init_system(void) {
 	set_cpu();
 
 	clear_sprite_tiles(); // clear VRAM
+	init_bkg(0); // reset bkg_map with tile-0
 
 	SHOW_BKG;
 	SHOW_SPRITES;
