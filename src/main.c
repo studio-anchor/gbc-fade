@@ -965,7 +965,7 @@ void handle_inputs(void) {
 //* -----------------------------------------  GAME  ------------------------------------------ *//
 //* ------------------------------------------------------------------------------------------- *//
 
-void gbc_only_error() {
+void gbc_only_error(void) {
 
 	if (!is_gbc) {
 		while (TRUE) {
@@ -981,7 +981,7 @@ void init_game(void) {
 	font_init();
     font = font_load(font_spect);
 
-	gbc_only_error(); // subengine
+	gbc_only_error(); // NOTE: subengine
 
 	init_palettes();
 
