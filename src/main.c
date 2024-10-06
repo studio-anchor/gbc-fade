@@ -27,7 +27,7 @@
 		- memcpy the currently used const palettes to WRAM, so they can be adjusted.
 		- fade the WRAM. load the WRAM. repeat until finished.
 	
-																		- Anchor
+															- Anchor
 */
 
 //* ------------------------------------------------------------------------------------------- *//
@@ -53,16 +53,6 @@
 #define PALETTE_BYTES (PALETTE_SIZE * sizeof(uint16_t)) // total bytes of one palette
 
 #define BKG_PALMASK 0x07 // mask for palette bits (bits 0-2)
-
-#define set_oam_palette_attr(sprite_index, palette) \
-    set_sprite_prop(sprite_index, (get_sprite_prop(sprite_index) & ~OAMF_PALMASK) | (palette)) // set sprite palette attribute only, keep other properties
-
-#define set_bkg_palette_attr_xy(x, y, palette) \
-	do { \
-		VBK_REG = VBK_ATTRIBUTES; \
-		set_bkg_attribute_xy(x, y, (get_bkg_tile_xy(x, y) & ~BKG_PALMASK) | (palette)); \
-		VBK_REG = VBK_TILES; \
-	} while (0) // set bkg palette attribute only, keep other properties
 
 //* ------------------------------------------------------------------------------------------- *//
 //* --------------------------------------  GAME MACROS  -------------------------------------- *//
@@ -398,28 +388,28 @@ void randomize_palette_assignments(void) { // randomly assign a loaded-palette t
 	uint8_t rand_num;
 
 	rand_num = (arand() % 6) + 1; // random between 0-5, then + 1 for 1-6
-	set_oam_palette_attr(0, rand_num); // oam-prop / palette
+	set_sprite_prop(0, rand_num); // oam-prop / palette
 	
 	rand_num = (arand() % 6) + 1;
-	set_oam_palette_attr(1, rand_num);
+	set_sprite_prop(1, rand_num);
 
 	rand_num = (arand() % 6) + 1;
-	set_oam_palette_attr(2, rand_num);
+	set_sprite_prop(2, rand_num);
 
 	rand_num = (arand() % 6) + 1;
-	set_oam_palette_attr(3, rand_num);
+	set_sprite_prop(3, rand_num);
 
 	rand_num = (arand() % 6) + 1;
-	set_bkg_palette_attr_xy(6, 8, rand_num); // bkg-prop / palette
+	set_bkg_attribute_xy(6, 8, rand_num); // bkg-prop / palette
 
 	rand_num = (arand() % 6) + 1;
-	set_bkg_palette_attr_xy(7, 8, rand_num);
+	set_bkg_attribute_xy(7, 8, rand_num);
 
 	rand_num = (arand() % 6) + 1;
-	set_bkg_palette_attr_xy(8, 8, rand_num);
+	set_bkg_attribute_xy(8, 8, rand_num);
 
 	rand_num = (arand() % 6) + 1;
-	set_bkg_palette_attr_xy(9, 8, rand_num);
+	set_bkg_attribute_xy(9, 8, rand_num);
 
 }
 
@@ -975,10 +965,23 @@ void handle_inputs(void) {
 //* -----------------------------------------  GAME  ------------------------------------------ *//
 //* ------------------------------------------------------------------------------------------- *//
 
+void gbc_only_error() {
+
+	if (!is_gbc) {
+		while (TRUE) {
+			gotoxy(6, 7);
+			printf("GBC ONLY");
+		}
+	}
+
+}
+
 void init_game(void) {
 
 	font_init();
     font = font_load(font_spect);
+
+	gbc_only_error(); // subengine
 
 	init_palettes();
 
