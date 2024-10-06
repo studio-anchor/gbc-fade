@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"name": "Windows",
+			"includePath": [
+				"${workspaceFolder}/../../../tools/gbdk/include/**"
+			],
+			"browse": {
+				"limitSymbolsToIncludedHeaders": true
+			}
+		}
+	],
+	"version": 4
+}

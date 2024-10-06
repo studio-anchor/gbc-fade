@@ -1,0 +1,15 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch in Emulicious (Windows)",
+			"type": "emulicious-debugger",
+			"request": "launch",
+			"program": "${env:DEV_PATH}/projects/anchor/gbc-fade/build/gbc-fade.gb",
+			"port": 58870,
+			"stopOnEntry": false,
+			"emuliciousPath": "${env:EMULICIOUS_PATH}",
+			"additionalSrcFolders": "${env:DEV_PATH}/projects/anchor/gbc-fade/src"
+		}
+	]
+}

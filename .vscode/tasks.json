@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build ROM Windows",
+			"type": "shell",
+			"command": "mingw32-make",
+			"args": [
+				"-f",
+				"Makefile"
+			],
+			"options": {
+				"shell": {
+					"executable": "C:\\Program Files\\Git\\bin\\bash.exe", // gitbash
+					"args": ["-c"]
+				}
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+		}
+	]
+}

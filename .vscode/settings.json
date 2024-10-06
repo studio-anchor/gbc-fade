@@ -1,0 +1,60 @@
+{
+	"terminal.integrated.defaultProfile.windows": "Git Bash", // default to GitBash on windows VsCode
+	"C_Cpp.default.includePath": [], // disable automating adding include paths in this file
+	"files.associations": {
+		"src/*.h": "c"
+	},
+	"makefile.configureOnOpen": false, // disable auto-configure makefile for intellisense
+	"better-comments.tags": [
+		{
+			"tag": "*",
+			"color": "#FF9614", // orange
+			"bold": false
+		},
+		{
+			"tag": "+",
+			"color": "#A6FF66", // light green
+			"bold": true
+		},
+		{
+			"tag": "!",
+			"color": "#FF5E45", // red
+			"bold": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF9614", // orange
+			"bold": true
+		},
+		{
+			"tag": "note",
+			"color": "#DBFF24", // yellow
+			"bold": false
+		},
+		{
+			"tag": "important",
+			"color": "#FF5E45", // red
+			"bold": true
+		},
+		{
+			"tag": "bug",
+			"color": "#FF5E45", // red
+			"bold": true
+		},
+		{
+			"tag": "hack",
+			"color": "#00FF91", // green
+			"bold": true
+		},
+		{
+			"tag": "alternate",
+			"color": "#00FF91", // green
+			"bold": true
+		},
+		{
+			"tag": "~",
+			"color": "#BB78FF", // purple
+			"bold": true
+		}
+	]
+}
